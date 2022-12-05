@@ -16,7 +16,9 @@ const ItemDetailContainer = () => {
 
     
     return (
-        <ItemDetail item={item}/>
+        <div className="flex justify-center items-center ">
+        <ItemDetail item={item} />
+      </div>
     )
 }
 export default ItemDetailContainer;
