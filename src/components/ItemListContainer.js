@@ -2,6 +2,7 @@ import {useEffect, useState} from "react"
 import ItemList from "./ItemList";
 import {item} from "../mocks/item.mock"
 import { useParams } from "react-router-dom";
+import { Loading } from "./Loading";
 
 
 const ItemListContainer = () => {
@@ -25,7 +26,9 @@ const ItemListContainer = () => {
     } );
   }, [category]); 
 
-
+  if (products.length === 0) {
+    return <Loading />;
+  }
 
   return (
     <div className="h-full containerProducts ">

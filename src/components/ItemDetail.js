@@ -7,7 +7,9 @@ const ItemDetail = ({ item }) =>{
   const [count, setCount] = useState(1);
   const [currentStock, setCurrentStock] = useState(item.stock);
   const maxQuantity = currentStock;
-
+ 
+   
+    console.log(currentStock)
 
     function handleCount(type) {
         if (type === "plus" && count < maxQuantity) setCount(count + 1);
