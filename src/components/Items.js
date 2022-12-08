@@ -31,7 +31,7 @@ const Items = ({product}) => {
      <div className="flex flex-col">
         <hr className="mb-2" />
         <div className="flex justify-between items-center">
-          <span className="font-bold">{product.price}</span>
+          <span className="font-bold">${product.price}</span>
           <span className="text-xs">In Stock: {product.stock}</span>
         </div>
       </div>
