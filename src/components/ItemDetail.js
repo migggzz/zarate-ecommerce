@@ -2,10 +2,10 @@ import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { CartContext } from "../context/cartContext";
 import { ItemCount } from "./ItemCount";
-import { Loading } from "./Loading";
+
 
 const ItemDetail = ({ item }) => {
-  const { addItem } = useContext(CartContext);
+  const { addItem, isInCart } = useContext(CartContext);
   const navigate = useNavigate();
   const [count, setCount] = useState(1);
   const [currentStock, setCurrentStock] = useState(item.stock);
@@ -63,6 +63,7 @@ const ItemDetail = ({ item }) => {
               Agregar al carrito
             </button>
             <button
+              disabled={!isInCart(item.id)}
               onClick={handleCheckout}
               className="w-4/5 bg-gray-800 text-white px-4 py-2 mt-2 rounded"
             >

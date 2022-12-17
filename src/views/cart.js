@@ -11,7 +11,6 @@ import emptyCart from "../assets/img/emptyCart.png";
 const CartView = () => {
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
-
   const { productsAdded, clear } = useContext(CartContext);
 
   const handleFinalizePurchase = () => {
@@ -31,6 +30,12 @@ const CartView = () => {
         <div className="flex flex-col items-center justify-center">
           <img src={emptyCart} alt="Empty Cart" className="w-44 h-44" />
           <h1 className="text-2xl">No has agregado productos</h1>
+          <button
+              onClick={() => navigate("/")}
+              className="rounded-lg p-2 bg-gray-800 text-white mt-4"
+            >
+              Ir al Inicio
+            </button>
         </div>
       ) : (
         <div>
@@ -51,7 +56,7 @@ const CartView = () => {
             </div>
             <div className="flex justify-end mt-4">
               {isLoading ? (
-                <Loading size="50px" />
+                <Loading/>
               ) : (
                 <button
                   onClick={handleFinalizePurchase}
