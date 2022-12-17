@@ -58,7 +58,7 @@ export const item = [
       name:"Buzo",
       title: "2pacBlack",
       description:"Talle XL",
-      price:"150",
+      price:"180",
       stock: 5,
       category: "buzo",
       img: buzoTupacBlack,  

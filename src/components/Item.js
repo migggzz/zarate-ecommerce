@@ -1,18 +1,29 @@
 import { useNavigate } from "react-router-dom";
+import { useGetItemImg } from "../hooks/useGetItemImg";
+import { Loading } from "./Loading";
 
-const Items = ({product}) => {
-   const navigate = useNavigate();
+export const Item = ({ product, quantityAdded }) => {
+  const navigate = useNavigate();
+  const img = useGetItemImg(product.img);
 
-   const description = product.description.slice(0, 30);
-   const title = product.name.slice(0, 20);
+  const description = product.description.slice(0, 30);
+  const title = product.name.slice(0, 20);
 
-   function handleNavigate() {
-      navigate(`/item/${product.id}`)
-   };
+  function handleNavigate() {
+    navigate(`/item/${product.id}`);
+  }
+
+  if (!img) {
+    return <Loading />;
+  }
+
 
 
   return (
-   <div onClick={handleNavigate} className=" w-[200px] h-[400px] bg-white rounded p-4 shadow cursor-pointer transition-all hover:shadow-lg product">
+   <div 
+      onClick={handleNavigate} 
+      className=" w-[200px] h-[400px] p-4 shadow cursor-pointer transition-all hover:shadow-lg cart"
+   >
       <div className="flex flex-col flex-1 gap-2.5">
          <img  src={product.img} className="w-full h-[200px] object-cover mb-2" alt="Product" />
          <span 
@@ -32,13 +43,16 @@ const Items = ({product}) => {
         <hr className="mb-2" />
         <div className="flex justify-between items-center">
           <span className="font-bold">${product.price}</span>
-          <span className="text-xs">In Stock: {product.stock}</span>
+          <span className="text-xs">
+            {quantityAdded ? "Agregados" : "En Stock"}:{" "}
+            {quantityAdded || product.stock}
+          </span>
         </div>
       </div>
    </div> 
   )
 }
-export default Items
+export default Item
 
 
 
