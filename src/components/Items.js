@@ -1,29 +1,18 @@
 import { useNavigate } from "react-router-dom";
-import { useGetItemImg } from "../hooks/useGetItemImg";
-import { Loading } from "./Loading";
 
-export const Item = ({ product, quantityAdded }) => {
-  const navigate = useNavigate();
-  const img = useGetItemImg(product.img);
+export const Items = ({ product, quantityAdded }) => {
+   const navigate = useNavigate();
 
-  const description = product.description.slice(0, 30);
-  const title = product.name.slice(0, 20);
+   const description = product.description.slice(0, 30);
+   const title = product.name.slice(0, 20);
 
-  function handleNavigate() {
-    navigate(`/item/${product.id}`);
-  }
-
-  if (!img) {
-    return <Loading />;
-  }
-
+   function handleNavigate() {
+      navigate(`/item/${product.id}`)
+   };
 
 
   return (
-   <div 
-      onClick={handleNavigate} 
-      className=" w-[200px] h-[400px] p-4 shadow cursor-pointer transition-all hover:shadow-lg cart"
-   >
+   <div onClick={handleNavigate} className=" w-[200px] h-[400px] bg-white rounded p-4 shadow cursor-pointer transition-all hover:shadow-lg product">
       <div className="flex flex-col flex-1 gap-2.5">
          <img  src={product.img} className="w-full h-[200px] object-cover mb-2" alt="Product" />
          <span 
@@ -52,7 +41,8 @@ export const Item = ({ product, quantityAdded }) => {
    </div> 
   )
 }
-export default Item
+export default Items
+
 
 
 

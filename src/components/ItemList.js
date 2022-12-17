@@ -1,10 +1,10 @@
-import Item from "./Item"
+import Items from "./Items"
 
 const ItemList = ({ products }) => {
   return (
     <ul className="flex m-10 gap-4 containerProducts">
       {products.map((product) =>(
-        <Item key={product.id} product={product}/>
+        <Items key={product.id} product={product}/>
       ))}
     </ul>
   )
