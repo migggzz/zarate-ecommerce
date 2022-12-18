@@ -9,24 +9,16 @@ import emptyCart from "../assets/img/emptyCart.png";
 
 
 const CartView = () => {
-  const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
-  const { productsAdded, clear } = useContext(CartContext);
+  const { productsAdded: items, totalAmount } = useContext(CartContext);
 
-  const handleFinalizePurchase = () => {
-    setIsLoading(true);
-    setTimeout(() => {
-      clear();
-      setIsLoading(false);
-      alert("Compra finalizada");
-      navigate("/");
-    }, 2000);
+  const goToCheckout = () => {
+    navigate("/checkout");
   };
-
   return (
     <Layout>
     <div className="flex flex-col max-w-[50%]">
-      {productsAdded.length === 0 ? (
+      {items.length === 0 ? (
         <div className="flex flex-col items-center justify-center">
           <img src={emptyCart} alt="Empty Cart" className="w-44 h-44" />
           <h1 className="text-2xl">No has agregado productos</h1>
@@ -40,7 +32,7 @@ const CartView = () => {
       ) : (
         <div>
           <div className="flex gap-4">
-            {productsAdded.map((product) => {
+            {items.map((product) => {
               const quantityAdded = product.quantityAdded;
 
                 return (
@@ -55,16 +47,17 @@ const CartView = () => {
               })}
             </div>
             <div className="flex justify-end mt-4">
-              {isLoading ? (
-                <Loading/>
-              ) : (
+              <div className="flex flex-col">
+                <span>
+                  Total a pagar: <strong>${totalAmount}</strong>
+                </span>
                 <button
-                  onClick={handleFinalizePurchase}
+                  onClick={goToCheckout}
                   className="rounded-lg p-2 bg-gray-800 text-white"
                 >
-                  Finalizar Compra
+                  Ir al Checkout
                 </button>
-              )}
+              </div>
             </div>
           </div>
         )}
@@ -72,6 +65,7 @@ const CartView = () => {
     </Layout>
   );
 };
+
 
 
 export default CartView;

@@ -10,6 +10,7 @@ export const Items = ({ product, quantityAdded }) => {
       navigate(`/item/${product.id}`)
    };
 
+   console.log(product.img)
 
   return (
    <div onClick={handleNavigate} className=" w-[200px] h-[400px] bg-white rounded p-4 shadow cursor-pointer transition-all hover:shadow-lg product">
