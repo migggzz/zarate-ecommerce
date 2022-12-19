@@ -15,6 +15,7 @@ const CartView = () => {
   const goToCheckout = () => {
     navigate("/checkout");
   };
+  
   return (
     <Layout>
     <div className="flex flex-col max-w-[50%]">

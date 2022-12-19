@@ -34,7 +34,6 @@ export const useGetItem = () => {
     if (id) {
       getDoc(ref)
         .then((item) => {
-          console.log( item.data() );
           if (item.exists()) {
             setData({ id: item.id, ...item.data() });
           }

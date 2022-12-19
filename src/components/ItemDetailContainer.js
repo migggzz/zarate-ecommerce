@@ -11,7 +11,7 @@ const ItemDetailContainer = () => {
   if (!item) {
     return <Loading />;
   }
-  (
+  return(
      <div className="flex justify-center items-center ">
           <ItemDetail item={item} />
      </div>
