@@ -5,7 +5,7 @@ import { Layout } from "../components/Layout";
 import { Loading } from "../components/Loading";
 import { TrashWidget } from "../components/TrashWidget";
 import { CartContext } from "../context/cartContext";
-import emptyCart from "../assets/img/emptyCart.png";
+import carritoVacio from "../assets/img/carritoVacio.png"
 
 
 const CartView = () => {
@@ -18,16 +18,16 @@ const CartView = () => {
   
   return (
     <Layout>
-    <div className="flex flex-col max-w-[50%]">
+    <div className="flex flex-col max-w-[50%] ml-64">
       {items.length === 0 ? (
         <div className="flex flex-col items-center justify-center">
-          <img src={emptyCart} alt="Empty Cart" className="w-44 h-44" />
-          <h1 className="text-2xl">No has agregado productos</h1>
+          <img src={carritoVacio} alt="carrito vacio" className="w-64 h-64" />
+          <h1 className="text-2xl">¡Aqui no productos!</h1>
           <button
               onClick={() => navigate("/")}
-              className="rounded-lg p-2 bg-gray-800 text-white mt-4"
+              className="rounded-lg p-3 bg-accent text-white mt-4"
             >
-              Ir al Inicio
+              HOME
             </button>
         </div>
       ) : (
@@ -47,16 +47,16 @@ const CartView = () => {
                 );
               })}
             </div>
-            <div className="flex justify-end mt-4">
-              <div className="flex flex-col">
-                <span>
+            <div className="flex justify-center mt-4">
+              <div className="flex flex-col gap-4">
+                <span className="text-3xl">
                   Total a pagar: <strong>${totalAmount}</strong>
                 </span>
                 <button
                   onClick={goToCheckout}
-                  className="rounded-lg p-2 bg-gray-800 text-white"
+                  className="rounded-lg p-2 bg-success text-white"
                 >
-                  Ir al Checkout
+                  PAGAR
                 </button>
               </div>
             </div>

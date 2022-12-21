@@ -14,7 +14,7 @@ export const Items = ({ product, quantityAdded }) => {
    console.log(product.img)
 
   return (
-   <div onClick={handleNavigate} className=" w-[200px] h-[400px] bg-white rounded p-4 shadow cursor-pointer transition-all hover:shadow-lg product">
+   <div className=" w-[200px] h-[400px] bg-bases-100 rounded p-4 shadow cursor-pointer transition-all hover:shadow-lg product">
       <div className="flex flex-col flex-1 gap-2.5">
          <img  src={product.img} className="w-full h-[200px] object-cover mb-2" alt="Product" />
          <span 
@@ -23,11 +23,12 @@ export const Items = ({ product, quantityAdded }) => {
           </span>
          <span className="text-xl font-sans"> {product.title} </span>
          <hr className="mb-2" />
-         <p className="mb-2">
-          {product.description.length > 30
-            ? `${description} ...`
-            : product.description}
-        </p>
+         <button 
+            onClick={handleNavigate}
+            className="flex justify-center items-center rounded bg-black text-white p-1"
+            >
+          Ver Detalle
+         </button>
      </div>
 
      <div className="flex flex-col">

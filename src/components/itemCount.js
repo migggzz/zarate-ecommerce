@@ -3,7 +3,7 @@ export const ItemCount = ({ count, handleCount }) => {
     <div className="flex justify-around mt-10 w-full bg-gray-200 rounded">
       <button
         onClick={() => handleCount("minus")}
-        className="flex justify-center items-center p-2 w-2/5 h-full bg-gray-800 text-white"
+        className="flex justify-center items-center p-2 w-2/5 h-full bg-error text-white"
       >
         -
       </button>
@@ -15,7 +15,7 @@ export const ItemCount = ({ count, handleCount }) => {
       </span>
       <button
         onClick={() => handleCount("plus")}
-        className="flex justify-center items-center p-2 w-2/5 h-full bg-gray-800 text-white"
+        className="flex justify-center items-center p-2 w-2/5 h-full bg-success text-white"
       >
         +
       </button>

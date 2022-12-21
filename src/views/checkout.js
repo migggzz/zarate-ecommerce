@@ -70,12 +70,11 @@ import {
             .catch((err) => console.error(err));
         });
       }
-      // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [updatingProducts]);
   
     return (
       <Layout>
-        <form onSubmit={handleFinalizePurchase} className="flex flex-col w-1/2">
+        <form onSubmit={handleFinalizePurchase} className="flex flex-col w-1/2 ml-64 shadow p-4 gap-4">
           <div className="flex flex-col">
             <input
               className="h-8 pl-4 mb-4 rounded-md"

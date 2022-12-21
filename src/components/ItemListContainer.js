@@ -11,7 +11,7 @@ const ItemListContainer = () => {
   }
 
   return (
-    <div className="h-full containerProducts ">
+    <div className="h-full containerProducts">
       <ItemList products={items}/>
     </div>
   )
